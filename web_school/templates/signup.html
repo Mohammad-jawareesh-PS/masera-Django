@@ -1,0 +1,34 @@
+{% load static %}
+{% block page %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Modern Flat Design Login Form Example</title>
+  <link rel="stylesheet" href="{% static 'style/user.css' %}">
+</head>
+<body>
+<!-- signup -->
+<div class="login-page">
+  <div class="form">
+    <form class="login-form" method="POST" name="login">
+      {% for i in messages %}
+      {{i}}
+      {% endfor %}
+      {% csrf_token %} 
+      {{user.username}}
+      {{user.password}}
+      {{user.email}}
+      <button>انشاء حساب جديد</button>
+      <p class="message">هل لديك حساب بلفعل? <a href="{% url 'login' %}">تسجيل دخول</a></p>
+    </form>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="{% static 'js/scriptLoginSignup.js' %}"></script>
+
+</body>
+</html>
+
+
+{% endblock %}

@@ -1,0 +1,66 @@
+
+{% load static %}
+        {% block page %}
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="{% static 'style/classes.css' %}">
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+            <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+          </head>
+          <body>
+              <input class="dark-light" type="checkbox" id="dark-light" name="dark-light"/>
+              <label for="dark-light"></label>
+              <div class="light-back"></div>
+              <div class="sec-center"> 	
+                  <input class="dropdown" type="checkbox" id="dropdown" name="dropdown"/>
+                  <label class="for-dropdown" for="dropdown">الصفوف <i class="uil uil-arrow-down"></i></label>
+                  <div class="section-dropdown"> 
+                      <input class="dropdown-sub" type="checkbox" id="dropdown-sub" name="dropdown-sub"/>
+                      <label class="for-dropdown-sub" for="dropdown-sub">المرحلة الاساسية <i class="uil uil-plus"></i></label>
+                      <div class="section-dropdown-sub"> 
+                        {% for i in cla %}
+                        {% if i.category == 'basic stage' %}
+                          <a href="{% url 'books' i.id %}">{{i.name_class}}<i class="uil uil-arrow-right"></i></a>
+                          {% endif %}
+                          {% endfor %}
+                      </div>
+                      <input class="dropdown-sub" type="checkbox" id="dropdown-sub" name="dropdown-sub"/>
+                      <label class="for-dropdown-sub" for="dropdown-sub">الصف الحادي عشر<i class="uil uil-plus"></i></label>
+                      <div class="section-dropdown-sub"> 
+                        {% for i in cla %}
+                        {% if i.category == 'eleventh grade' %}
+                          <a href="{% url 'books' i.id %}">{{i.name_class}}<i class="uil uil-arrow-right"></i></a>
+                          {% endif %}
+                          {% endfor %}
+                      </div>
+                      <input class="dropdown-sub" type="checkbox" id="dropdown-sub" name="dropdown-sub"/>
+                      <label class="for-dropdown-sub" for="dropdown-sub">الصف الثاني عشر<i class="uil uil-plus"></i></label>
+                      <div class="section-dropdown-sub"> 
+                        {% for i in cla %}
+                        {% if i.category == 'Twelfth grade' %}
+                          <a href="{% url 'books' i.id %}">{{i.name_class}}<i class="uil uil-arrow-right"></i></a>
+                          {% endif %}
+                          {% endfor %}
+                      </div>
+                  </div>
+              </div>
+             
+          
+          </body>
+          
+          
+          </script>
+          
+          
+              
+          
+          </html>
+
+
+        {% endblock %}
